@@ -4,40 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fetch Data</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .bg-navy {
+      background-color: #001f3f;
+    }
+    .text-pink {
+      color: #ff69b4;
+    }
+    .border-pink {
+      border-color: #ff69b4;
+    }
+    .hover-bg-navy:hover {
+      background-color: #001233;
+    }
+  </style>
 </head>
-<body>
-<h1>Fetch Data</h1>
-<table class="table" border="2">
-    <thead>
-<tr>
-    <th>ID</th>
-    <th>PRODUCT NAME</th>
-    <th>PRODUCT PRICE</th>
-    <th>PRODUCT QUANTITY</th>
-    <th>PRODUCT IMAGE</th>
-    <th>PRODUCT DISCRIPTION</th>
-    <th colspan="2">ACTION</th>
-</tr>
-</thead>
-<tbody>
-@foreach ($product as $row)
-<tr>
-    <th>{{ $row->id }}</th>
-    <th>{{ $row->name }}</th>
-    <th>{{ $row->price }}</th>
-    <th>{{ $row->quantity }}</th>
-    <th><img src="{{ asset('Images/' . $row->image ) }}" width="100px" height="100px" style="border-radius: 50%" alt=""></th>
-    <th>{{ $row->discription }}</th>
-    <th>
-        <a href="{{ route('edit',$row->id) }}" class="btn btn-success">UPDATE</a>
-        <a href="{{ route('delete',$row->id) }}" class="btn btn-danger">DELETE</a>
-    </th>
-</tr>
-@endforeach
-</tbody>
-</table>
+<body class="bg-white flex items-center justify-center min-h-screen">
+  <div class="container mx-auto p-4">
+    <h1 class="text-3xl font-bold mb-6 text-center text-pink">Fetch Data</h1>
+    <table class="min-w-full bg-white border border-pink rounded-lg shadow-md">
+      <thead>
+        <tr class="bg-pink-500 text-white">
+          <th class="py-2 px-4 border-b border-pink">ID</th>
+          <th class="py-2 px-4 border-b border-pink">PRODUCT NAME</th>
+          <th class="py-2 px-4 border-b border-pink">PRODUCT PRICE</th>
+          <th class="py-2 px-4 border-b border-pink">PRODUCT QUANTITY</th>
+          <th class="py-2 px-4 border-b border-pink">PRODUCT IMAGE</th>
+          <th class="py-2 px-4 border-b border-pink">PRODUCT DESCRIPTION</th>
+          <th class="py-2 px-4 border-b border-pink" colspan="2">ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach ($product as $row)
+        <tr>
+          <td class="py-2 px-4 border-b border-pink">{{ $row->id }}</td>
+          <td class="py-2 px-4 border-b border-pink">{{ $row->name }}</td>
+          <td class="py-2 px-4 border-b border-pink">{{ $row->price }}</td>
+          <td class="py-2 px-4 border-b border-pink">{{ $row->quantity }}</td>
+          <td class="py-2 px-4 border-b border-pink">
+            <img src="{{ asset('Images/' . $row->image ) }}" width="100px" height="100px" class="rounded-full" alt="">
+          </td>
+          <td class="py-2 px-4 border-b border-pink">{{ $row->discription }}</td>
+          <td class="py-2 px-4 border-b border-pink">
+            <a href="{{ route('edit', $row->id) }}" class="bg-green-500 text-white py-1 px-3 rounded-lg hover:bg-green-700 transition-all">UPDATE</a>
+            <a href="{{ route('delete', $row->id) }}" class="bg-red-500 text-white py-1 px-3 rounded-lg hover:bg-red-700 transition-all">DELETE</a>
+          </td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>
