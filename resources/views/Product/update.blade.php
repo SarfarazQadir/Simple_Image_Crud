@@ -4,21 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Update Product Details</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .transition-all {
+      transition: all 0.3s ease-in-out;
+    }
+    .bg-navy {
+      background-color: #001f3f;
+    }
+    .hover-bg-navy:hover {
+      background-color: #001233;
+    }
+  </style>
 </head>
-<body>
-<h1>Update Product Details</h1>
-<form method="POST" action="{{ route('update', $products->id) }}" enctype="multipart/form-data" >
-    @csrf
-    <input type="text" name="name" value="{{ $products->name }}"><br><br>
-    <input type="number" name="price" value="{{ $products->price }}"><br><br>
-    <input type="number" name="quantity" value="{{ $products->quantity }}"><br><br>
-    <input type="file" name="image" value="{{ $products->image }}" >
-    <img src="{{ asset('Images/'. $products->image) }}" width="100px" height="100px" alt=""><br><br>
-    <input type="text" name="discription" value="{{ $products->discription }}"><br><br>
-    <input type="submit" value="Update Data">
+<body class="bg-navy flex items-center justify-center h-screen">
+  <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+    <h1 class="text-2xl font-bold mb-6 text-center text-pink-600">Update Product Details</h1>
+    <form method="POST" action="{{ route('update', $products->id) }}" enctype="multipart/form-data">
+      @csrf
+      <div class="mb-4">
+        <input type="text" name="name" value="{{ $products->name }}" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all">
+      </div>
+      <div class="mb-4">
+        <input type="number" name="price" value="{{ $products->price }}" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all">
+      </div>
+      <div class="mb-4">
+        <input type="number" name="quantity" value="{{ $products->quantity }}" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all">
+      </div>
+      <div class="mb-4">
+        <input type="file" name="image" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all">
+        <img src="{{ asset('Images/'. $products->image) }}" width="100px" height="100px" alt="" class="mt-4">
+      </div>
+      <div class="mb-4">
+        <input type="text" name="discription" value="{{ $products->discription }}" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all">
+      </div>
+      <div class="text-center">
+        <input type="submit" value="Update Data" class="bg-pink-600 text-white py-2 px-4 rounded-lg hover:bg-pink-700 transition-all cursor-pointer">
+      </div>
     </form>
-    </body>
+  </div>
+</body>
 </html>
