@@ -4,6 +4,7 @@
 
 <h1>Fetch Data</h1>
 
+![image](https://github.com/user-attachments/assets/3dd8d677-f343-49f4-b8e3-5d9a26a6b673)
 
 
 
