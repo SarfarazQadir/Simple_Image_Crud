@@ -1,3 +1,14 @@
+<h1>Form</h1>
+
+![image](https://github.com/user-attachments/assets/aab6ed04-8132-4878-8240-12317b378606)
+
+<h1>Fetch Data</h1>
+
+![image](https://github.com/user-attachments/assets/3dd8d677-f343-49f4-b8e3-5d9a26a6b673)
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
